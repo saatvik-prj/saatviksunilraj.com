@@ -44,17 +44,37 @@
       margin-top: 10px;
     }
 
-nav {
+
+.responsive-nav {
   background-color: #2c2f3a;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
-  color: #00ffd5; /* brighter teal */
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #00ffd5;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #00ffd5;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.05rem;
@@ -63,11 +83,42 @@ nav a {
   transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover {
+.nav-links a:hover {
   background-color: #1abc9c;
-  color: #2c2f3a; /* dark contrast on highlight */
+  color: #2c2f3a;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
 
     section {
       background: var(--white);
@@ -112,6 +163,31 @@ nav a:hover {
     footer p {
       margin-bottom: 10px;
     }
+
+  .place-1st {
+    color: gold;
+    font-weight: bold;
+  }
+
+  .place-2nd {
+    color: silver;
+    font-weight: bold;
+  }
+
+  .place-3rd {
+    color: #cd7f32; /* Bronze */
+    font-weight: bold;
+  }
+
+  .place-4th {
+    color: #ff8da1; /* Light Pink */
+    font-weight: bold;
+  }
+
+  .place-5th {
+      color: #6495ED; /* Light Pink */
+      font-weight: bold;
+  }
   </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -122,6 +198,12 @@ nav a:hover {
   gtag('js', new Date());
 
   gtag('config', 'G-K4HVB1ZGZ1');
+</script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
 </script>
 <body>
 <header style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 5px 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
@@ -144,14 +226,20 @@ nav a:hover {
   </div>
 </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#awards">Awards</a>
-    <a href="#activities">Activities</a>
-    <a href="#media-features">Media</a>
-  </nav>
+<nav class="responsive-nav">
+  <div class="nav-container">
+    <div class="logo">Menu</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
+      <a href="#activities">Activities</a>
+      <a href="#media-features">Media</a>
+    </div>
+  </div>
+</nav>
 
   <section id="video" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
     <video controls width="100%">
@@ -242,13 +330,13 @@ nav a:hover {
     </div>
 
    <div style="background: #fdfdfd; padding: 20px; border-left: 5px solid #1abc9c; border-radius: 10px;">
-      <h3 style="color: #2c3e50; margin-bottom: 8px;">Loudoun Youth Advisory Council</h3>
+      <h3 style="color: #2c3e50; margin-bottom: 8px;">Loudoun Youth Advisory Council (YAC)</h3>
       <p style="font-style: italic; color: #555;">February 2023 – March 2025</p>
-      <p>YAC is a student-led organization of highly motivated teens who reside in Loudoun County. YAC works on special events and community service projects for their peers. YAC also serves as a recognized medium for presenting ideas and opinions of Loudoun County’s youth to the community and its leaders, ensuring that Loudoun’s youth voice is heard by elected officials.</p>
+      <p>YAC works on special events and community service projects for their peers. YAC also serves as a recognized medium for presenting ideas and opinions of Loudoun County’s youth to the community and its leaders, ensuring that Loudoun’s youth voice is heard by elected officials.</p>
       <ul style="margin-top: 10px; padding-left: 20px;">
         <li>Member of Policy and Activism team, contributed to targeted programs and work toward our committee tasks.</li>
         <li>Assisted in coordinating the Step-Up Loudoun competitions with ~25 semi-finalist teams; managed registration and verified teams’ presentation materials.</li>
-        <li>Created and managed targetted social media posts and podcasts.<li>
+        <li>Created and managed targetted social media posts and podcasts.</li>
       </ul>
     </div>
 
@@ -257,16 +345,17 @@ nav a:hover {
 <section id="awards" style="background: var(--primary); color: var(--accent); max-width: 1000px; margin: 40px auto; padding: 40px; border-radius: 12px;">
   <h2 style="color: var(--white); border-bottom: 2px solid var(--accent); padding-bottom: 8px;">Awards & Recognitions</h2>
 
-  <h3 style="color: var(--accent); margin-top: 20px;">Academic & STEM Achievements</h3>
+  <h3 style="color: var(--accent); margin-top: 20px;"><span style="color: #00e6e6">Academic & STEM Achievements<span></h3>
   <ul>
-    <li><span style="font-weight: normal;">2025</span> <strong>Robert H. Herndon, Aerospace Corporation - 3rd Place</strong></li>
-    <li><span style="font-weight: normal;">2025</span> <strong>Loudoun County Regional Science & Engineering Fair - MIT Alumni Award</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>Virginia Aerospace Science and Technology Scholar (VASTS)</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>Naval Horizons STEM Essay Contest - Winner</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>NASA Power to Explore Challenge - Certificate of Recognition</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>Virginia Space Coast Scholar (VSCS)</strong></li>
-    <li><span style="font-weight: normal;">2023, 2024</span> <strong>Academic Excellence Award</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>Inducted in:</strong>
+    <li>2025 Robert H. Herndon, Aerospace Corporation, Science Project - <span class="place-1st">1st Place</span></li>
+    <li>2025 Robert H. Herndon, Aerospace Corporation, STEM Essay (Realize Our Future in Space) - <span class="place-3rd">3rd Place</span></li>
+    <li>2025 Loudoun County Regional Science & Engineering Fair - <span class="place-4th">MIT Alumni Award</span></li>
+    <li>2024 Virginia Aerospace Science and Technology Scholar (VASTS) - <span class="place-5th">Selected Scholar</span></li>
+    <li>2024 Naval Horizons STEM Essay Contest - <span class="place-1st">Winner</span></li>
+    <li>2024 NASA Power to Explore Challenge - <strong><span style="color: #708090">Honorable Mention</span></strong></li>
+    <li>2024 Virginia Space Coast Scholar (VSCS) - <span class="place-5th">Selected Scholar</span></li>
+    <li>2023, 2024 Academic Excellence Award - <span class="place-5th">All A Honor Roll</span></li>
+    <li>2024 <strong>Inducted in:</strong>
       <ul style="margin-top: 4px;">
         <li>National Honor Society</li>
         <li>National Math Honor Society</li>
@@ -277,32 +366,32 @@ nav a:hover {
     </li>
   </ul>
 
-  <h3 style="color: var(--accent); margin-top: 20px;">Leadership, Service & Extracurricular Honors</h3>
+  <h3 style="color: var(--accent); margin-top: 20px;"><span style="color: #00e6e6">Leadership, Service & Extracurricular Honors</span></h3>
   <ul>
-    <li><span style="font-weight: normal;">2025</span> <strong>U.S. Congressional Award, Gold Medal</strong></li>
-    <li><span style="font-weight: normal;">2025</span> <strong>DECA Virginia State, Entrepreneurship Innovation Plan (STEM) - 2nd Place</strong></li>
-    <li><span style="font-weight: normal;">2024, 2023</span> <strong>Presidential Volunteer Service Award</strong></li>
-    <li><span style="font-weight: normal;">2024,2023</span> <strong>Loudoun Youth Advisory Council (YAC) Member</strong></li>
-    <li><span style="font-weight: normal;">2023</span> <strong>Broad Run Key Club - Member Of The Year</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>National Speech and Debate - Yale Invitational</strong></li>
-    <li><span style="font-weight: normal;">2024</span> <strong>National Speech and Debate - Pennsbury Falcon Invitational</strong></li>
-    <li><span style="font-weight: normal;">2023</span> <strong>National Speech and Debate - WACFL 5 Public Forum - 3rd Place</strong></li>
+    <li>2025 U.S. Congressional Award - <span class="place-1st">Gold Medal<span></li>
+    <li>2025 DECA Virginia State, Entrepreneurship Innovation Plan (STEM) - <span class="place-2nd">2nd Place</span></li>
+    <li>2024, 2023 Presidential Volunteer Service Award - <span class="place-1st">Gold</span></li>
+    <li>2024,2023 Loudoun Youth Advisory Council (YAC) - <span class="place-5th">Member</span></li>
+    <li>2023 Broad Run Key Club - <span class="place-5th">Member Of The Year<span></li>
+    <li>2024 National Speech and Debate - <span class="place-5th">Yale Invitational</span></li>
+    <li>2024 National Speech and Debate - <span class="place-5th">Pennsbury Falcon Invitational<span></li>
+    <li>2023 National Speech and Debate, WACFL 5, Public Forum - <span class="place-3rd">3rd Place</span></li>
   </ul>
 
   <h2 style="color: var(--white); margin-top: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 8px;">Sports Awards</h2>
   <ul>
-    <li><span style="font-weight: normal;">2024 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) -</span> <strong>BS U19 Silver / XD U17 Gold</strong></li>
-    <li><span style="font-weight: normal;">2023 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) -</span> <strong>BS U17 Bronze / XD U17 Gold</strong></li>
-    <li><span style="font-weight: normal;">2023 USAB SOUTH OPEN LOCAL CHAMPIONSHIPS (TBTT) - </span> <strong>BS U17 Silver / XD U17 Silver</strong></li>
-    <li><span style="font-weight: normal;">2023 USAB SOUTH OPEN LOCAL CHAMPIONSHIPS (TBTT) - </span> <strong>BS U17 Silver</strong></li>
-    <li><span style="font-weight: normal;">2023 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NJBC) - </span> <strong>BS U17 Silver / BD 17 Bronze</strong></li>
-    <li><span style="font-weight: normal;">2023 NVBC OPEN - </span> <strong>BS U17, MS-C Gold / XD 17, XD-C Silver</strong></li>
-    <li><span style="font-weight: normal;">2022 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NJBC) - </span> <strong>BS U15 Bronze / BD U15 Gold / XD U15 Bronze</strong></li>
-    <li><span style="font-weight: normal;">2022 USAB NORTHEAST CLOSED REGIONAL CHAMPIONSHIPS (NVBC) - </span> <strong>BS U15 Bronze / BD U15 Gold / XD U15 Bronze</strong></li>
-    <li><span style="font-weight: normal;">2021 Yonex Open NVBC - </span> <strong>BS U15 Silver / BD U15 Gold</strong></li>
-    <li><span style="font-weight: normal;">2021 IBC YONEX Cup - </span> <strong>BS U15 Gold / XD U15 Silver</strong></li>
-    <li><span style="font-weight: normal;">2020 TBC OPEN - </span> <strong>BS U13 Silver / XD U13 Gold</strong></li>
-    <li><span style="font-weight: normal;">2019 USAB OPEN LOCAL CHAMPIONSHIPS (MBC) - </span> <strong>Consolation - Winner</strong></li>
+    <li>2024 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) - <strong>BS U19 <span style="color: silver;">Silver</span> / XD U17 <span style="color: gold;">Gold</span></strong></li>
+    <li>2023 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) - <strong>BS U17 <span style="color: #cd7f32;">Bronze</span> / XD U17 <span style="color: gold;">Gold</span></strong></li>
+    <li>2023 USAB SOUTH OPEN LOCAL CHAMPIONSHIPS (TBTT) - <strong>BS U17 <span style="color: silver;">Silver</span> / XD U17 <span style="color: silver;">Silver</span></strong></li>
+    <li>2023 USAB SOUTH OPEN LOCAL CHAMPIONSHIPS (TBTT) - <strong>BS U17 <span style="color: silver;">Silver</span></strong></li>
+    <li>2023 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NJBC) - <strong>BS U17 <span style="color: silver;">Silver</span> / BD 17 <span style="color: #cd7f32;">Bronze</span></strong></li>
+    <li>2023 NVBC OPEN - <strong>BS U17, MS-C <span style="color: gold;">Gold</span> / XD 17, XD-C <span style="color: silver;">Silver</span></strong></li>
+    <li>2022 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NJBC) - <strong>BS U15 <span style="color: #cd7f32;">Bronze</span> / BD U15 <span style="color: gold;">Gold</span> / XD U15 <span style="color: #cd7f32;">Bronze</span></strong></li>
+    <li>2022 USAB NORTHEAST CLOSED REGIONAL CHAMPIONSHIPS (NVBC) - <strong>BS U15 <span style="color: #cd7f32;">Bronze</span> / BD U15 <span style="color: gold;">Gold</span> / XD U15 <span style="color: #cd7f32;">Bronze</span></strong></li>
+    <li>2021 Yonex Open NVBC - <strong>BS U15 <span style="color: silver;">Silver</span> / BD U15 <span style="color: gold;">Gold</span></strong></li>
+    <li>2021 IBC YONEX Cup - <strong>BS U15 <span style="color: gold;">Gold</span> / XD U15 <span style="color: silver;">Silver</span></strong></li>
+    <li>2020 TBC OPEN - <strong>BS U13 <span style="color: silver;">Silver</span> / XD U13 <span style="color: gold;">Gold</span></strong></li>
+    <li>2019 USAB OPEN LOCAL CHAMPIONSHIPS (MBC) - <strong><span style="color: #708090">Consolation - Winner</span></strong></li>
   </ul>
 </section>
 
