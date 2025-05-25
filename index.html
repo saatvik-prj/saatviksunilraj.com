@@ -3,6 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Standard favicon -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- PNG favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<!-- Android/Chrome manifest -->
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Safari Pinned Tab -->
+<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#ffffff">
+
   <title>Saatvik Sunilraj</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -165,27 +184,32 @@
     }
 
   .place-1st {
-    color: gold;
+    #color: silver;
+    color: #dcdcdc;
     font-weight: bold;
   }
 
   .place-2nd {
-    color: silver;
+    #color: silver;
+    color: #dcdcdc;
     font-weight: bold;
   }
 
   .place-3rd {
-    color: #cd7f32; /* Bronze */
+    #color: silver; /* Bronze */
+    color: #dcdcdc;
     font-weight: bold;
   }
 
   .place-4th {
-    color: #ff8da1; /* Light Pink */
+    #color: silver; /* Light Pink */
+    color: #dcdcdc;
     font-weight: bold;
   }
 
   .place-5th {
-      color: #6495ED; /* Light Pink */
+      #color: silver; /* Light Pink */
+      color: #dcdcdc;
       font-weight: bold;
   }
   </style>
@@ -204,12 +228,26 @@
     const nav = document.getElementById("navLinks");
     nav.classList.toggle("show");
   }
+
+  // Close nav when a link is clicked (in responsive mode)
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.querySelectorAll(".nav-links a");
+      const navContainer = document.getElementById("navLinks");
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (navContainer.classList.contains("show")) {
+            navContainer.classList.remove("show");
+          }
+        });
+      });
+  });
 </script>
 <body>
 <header style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 5px 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   <div style="display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: auto; flex-wrap: wrap;">
     <div style="display: flex; align-items: center; gap: 20px;">
-      <img src="headshot1.png" alt="Saatvik Sunilraj" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 3px 8px rgba(0,0,0,0.2); border: 2px solid var(--white);">
+      <img src="images/headshot1.png" alt="Saatvik Sunilraj" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 3px 8px rgba(0,0,0,0.2); border: 2px solid var(--white);">
       <div>
         <h1 style="font-size: 2rem; margin-bottom: 5px;">Saatvik Sunilraj</h1>
         <p style="font-size: 1rem;">Aspiring aerospace engineer with a focus on sustainable technologies and space exploration</p>
@@ -243,16 +281,21 @@
 
   <section id="video" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
     <video controls width="100%">
-      <source src="all_about_me.mp4" type="video/mp4">
+      <source src="all_about_me_2.mp4" type="video/mp4">
     </video>
   </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p><strong>Broad Run High School, Ashburn, VA</strong> - Anticipated Grad Year: May 2026</p>
-    <p><strong>Relevant Coursework:</strong> AP Calculus BC, AP Physics C, AP Chemistry, AP Computer Science Principles, Cybersecurity, Robotic Design, Aerospace Science</p>
-    <p><strong>Programs:</strong> Virginia Space Coast Scholar (NASA Wallops), Virginia Aerospace Science and Technology Scholar (NASA Langley), ASSIP at GMU</p>
-  </section>
+<section id="about">
+  <h2>About</h2>
+  <p style="margin-bottom: 1rem;">I'm Saatvik Sunilraj, an aspiring aerospace engineer with a focus on sustainable technologies and space exploration. As a high school junior at Broad Run High School, I’ve combined rigorous STEM coursework—including AP Physics, AP Calculus, and AP Computer Science—with hands-on research through NASA and George Mason University programs.</p>
+
+  <p style="margin-bottom: 1rem;">My work spans cutting-edge projects such as simulating eco-friendly SF₆ alternatives using machine learning, designing adaptive radiation shielding for the Lunar Gateway, and developing mission plans for lunar habitats and asteroid mining.</p>
+
+  <p style="margin-bottom: 1rem;">Beyond my academics, I'm a national-level USA Badminton player, a public forum debater, and a committed volunteer, leading food rescue efforts across Northern Virginia. I’ve been honored with awards such as the U.S. Congressional Gold Medal, MIT Alumni Award at the Regional Science & Engineering Fair, and top state placements in DECA and STEM contests.</p>
+
+  <p style="margin-bottom: 1rem;">Fueled by curiosity and a passion for space, I aim to help pioneer the next generation of sustainable aerospace solutions—both on Earth and beyond.</p>
+</section>
+
 
 <section id="programs" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
   <h2>Featured Programs</h2>
@@ -350,9 +393,10 @@
     <li>2025 Robert H. Herndon, Aerospace Corporation, Science Project - <span class="place-1st">1st Place</span></li>
     <li>2025 Robert H. Herndon, Aerospace Corporation, STEM Essay (Realize Our Future in Space) - <span class="place-3rd">3rd Place</span></li>
     <li>2025 Loudoun County Regional Science & Engineering Fair - <span class="place-4th">MIT Alumni Award</span></li>
+    <li>2025 Aspiring Scientists Summer Internship Program (ASSIP) - <span class="place-4th">Selected Intern</span></li>
     <li>2024 Virginia Aerospace Science and Technology Scholar (VASTS) - <span class="place-5th">Selected Scholar</span></li>
     <li>2024 Naval Horizons STEM Essay Contest - <span class="place-1st">Winner</span></li>
-    <li>2024 NASA Power to Explore Challenge - <strong><span style="color: #708090">Honorable Mention</span></strong></li>
+    <li>2024 NASA Power to Explore Challenge - <span class="place-5th">Honorable Mention</span></li>
     <li>2024 Virginia Space Coast Scholar (VSCS) - <span class="place-5th">Selected Scholar</span></li>
     <li>2023, 2024 Academic Excellence Award - <span class="place-5th">All A Honor Roll</span></li>
     <li>2024 <strong>Inducted in:</strong>
@@ -370,7 +414,7 @@
   <ul>
     <li>2025 U.S. Congressional Award - <span class="place-1st">Gold Medal<span></li>
     <li>2025 DECA Virginia State, Entrepreneurship Innovation Plan (STEM) - <span class="place-2nd">2nd Place</span></li>
-    <li>2024, 2023 Presidential Volunteer Service Award - <span class="place-1st">Gold</span></li>
+    <li>2024,2023 Presidential Volunteer Service Award - <span class="place-1st">Gold</span></li>
     <li>2024,2023 Loudoun Youth Advisory Council (YAC) - <span class="place-5th">Member</span></li>
     <li>2023 Broad Run Key Club - <span class="place-5th">Member Of The Year<span></li>
     <li>2024 National Speech and Debate - <span class="place-5th">Yale Invitational</span></li>
@@ -379,6 +423,7 @@
   </ul>
 
   <h2 style="color: var(--white); margin-top: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 8px;">Sports Awards</h2>
+  <h3 style="color: var(--accent); margin-top: 20px;"><span style="color: #00e6e6">USAB Tournaments<span></h3>
   <ul>
     <li>2024 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) - <strong>BS U19 <span style="color: silver;">Silver</span> / XD U17 <span style="color: gold;">Gold</span></strong></li>
     <li>2023 USAB NORTHEAST OPEN LOCAL CHAMPIONSHIPS (NVBC) - <strong>BS U17 <span style="color: #cd7f32;">Bronze</span> / XD U17 <span style="color: gold;">Gold</span></strong></li>
@@ -391,14 +436,29 @@
     <li>2021 Yonex Open NVBC - <strong>BS U15 <span style="color: silver;">Silver</span> / BD U15 <span style="color: gold;">Gold</span></strong></li>
     <li>2021 IBC YONEX Cup - <strong>BS U15 <span style="color: gold;">Gold</span> / XD U15 <span style="color: silver;">Silver</span></strong></li>
     <li>2020 TBC OPEN - <strong>BS U13 <span style="color: silver;">Silver</span> / XD U13 <span style="color: gold;">Gold</span></strong></li>
-    <li>2019 USAB OPEN LOCAL CHAMPIONSHIPS (MBC) - <strong><span style="color: #708090">Consolation - Winner</span></strong></li>
+    <li>2019 USAB MIDWEST OPEN LOCAL CHAMPIONSHIPS (MBC) - <strong><span style="color: #d3d3d3">Consolation - Winner</span></strong></li>
+    </ul>
+
+    <h3 style="color: var(--accent); margin-top: 20px;"><span style="color: #00e6e6">Charity and Other Tournaments<span></h3>
+    	<ul>
+    		<li>2023,2022 - Baltimore Badminton Charity Open</li>
+    		<li>2023 UMD Durabird DC Open</li>
+    		<li>2023 Kerala Association of Greater Washington [KAWG] Badminton Tournament</li>
+    		<li>2023 UMD Durabird DC Open</li>
+    		<li>2023 Peterchang's Badminton Championship</li>
+    		<li>2022 Royal AMPCUS Open</li>
+    		<li>2022 UNCG Al Shiem Cup Greensboro Open</li>
+    		<li>2022,2021 Howard County Open</li>
+    		<li>2020 GMU Open</li>
+    	</ul>
+    </li>
   </ul>
 </section>
 
   <section id="activities">
     <h2>Activities & Clubs</h2>
     <ul>
-      <li>USA Badminton – National level player (8 Gold, 12 Silver, 7 Bronze); Highest Ranking: 16</li>
+      <li>USA Badminton – National level player; Highest Ranking: 16</li>
       <li>National Speech & Debate Association – Public Forum; Peak Ranking: 207</li>
       <li>Key Club
       <ul><li>Vice President (Members) - 2023-2024</li><li>Chair (Drives) - 2023-2024</li></ul>
