@@ -6,11 +6,33 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://saatviksunilraj.com/</loc>
-  <lastmod>2025-05-23T02:52:33+00:00</lastmod>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
 </url>
-
+<url>
+  <loc>https://saatviksunilraj.com/#about</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
+<url>
+  <loc>https://saatviksunilraj.com/#projects</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
+<url>
+  <loc>https://saatviksunilraj.com/#experience</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
+<url>
+  <loc>https://saatviksunilraj.com/#awards</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
+<url>
+  <loc>https://saatviksunilraj.com/#activities</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
+<url>
+  <loc>https://saatviksunilraj.com/#media-features</loc>
+  <lastmod>2025-05-29T02:52:33+00:00</lastmod>
+</url>
 
 </urlset>
