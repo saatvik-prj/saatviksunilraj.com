@@ -312,6 +312,15 @@
     replayBtn.style.display = "inline-block";
   });
 
+      // Hide replay on play, seek, pause, etc.
+      const hideReplay = () => {
+        replayBtn.style.display = "none";
+      };
+      video.addEventListener('play', hideReplay);
+	  video.addEventListener('pause', hideReplay);
+	  video.addEventListener('seeking', hideReplay);
+      video.addEventListener('seeked', hideReplay);
+
    replayBtn.addEventListener('click', () => {
           video.currentTime = 0;
           video.play();
