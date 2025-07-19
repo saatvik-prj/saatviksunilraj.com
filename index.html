@@ -281,11 +281,43 @@
   </div>
 </nav>
 
-  <section id="video" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <video controls width="100%">
-      <source src="all_about_me_2.mp4" type="video/mp4">
+<section id="video" style="max-width: 1000px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
+  <div style="position: relative;">
+    <video id="aboutVideo" controls width="100%" style="display: block;">
+      <source src="all_about_me_3.mp4" type="video/mp4">
     </video>
-  </section>
+
+    <!-- Overlay Replay Button -->
+    <button id="replayBtn" style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      z-index: 2;
+    ">🔁 Replay</button>
+  </div>
+</section>
+<script>
+  var video = document.getElementById("aboutVideo");
+
+  video.addEventListener("ended", function() {
+    replayBtn.style.display = "inline-block";
+  });
+
+   replayBtn.addEventListener('click', () => {
+          video.currentTime = 0;
+          video.play();
+          replayBtn.style.display = "none";
+  });
+</script>
 
 <section id="about">
   <h2>About</h2>
@@ -303,16 +335,16 @@
   <h2>Featured Programs</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
     <div style="background: #f0f9f8; padding: 20px; border-left: 5px solid #1abc9c; border-radius: 10px;">
-      <h3 style="margin-bottom: 10px; color: #2c3e50;">Virginia Space Coast Scholar</h3>
-      <p>Selected by NASA Wallops for academic excellence and STEM interest. Participated in a competitive program focused on aerospace missions and space science.</p>
+      <h3 style="margin-bottom: 10px; color: #2c3e50;">Aspiring Scientists Summer Internship Program (ASSIP) at George Mason University</h3>
+      <p>Engaged in mentored research at GMU's summer program, exploring advanced scientific methods and contributing to real-world research initiatives.</p>
     </div>
     <div style="background: #f0f9f8; padding: 20px; border-left: 5px solid #1abc9c; border-radius: 10px;">
       <h3 style="margin-bottom: 10px; color: #2c3e50;">Virginia Aerospace Science and Technology Scholar</h3>
-      <p>Completed NASA Langley's advanced aerospace coursework and mission design challenge. Collaborated with students statewide on technical aerospace projects.</p>
+      <p>A Virginia Space Grant Consortium/NASA Langley Research Center program which focuses on providing solutions to real-world questions, ISS design upgrades, a new crew exploration vehicle, and an environment immersed in NASA-related research.</p>
     </div>
     <div style="background: #f0f9f8; padding: 20px; border-left: 5px solid #1abc9c; border-radius: 10px;">
-      <h3 style="margin-bottom: 10px; color: #2c3e50;">ASSIP at George Mason University</h3>
-      <p>Engaged in mentored research at GMU's summer program, exploring advanced scientific methods and contributing to real-world research initiatives.</p>
+      <h3 style="margin-bottom: 10px; color: #2c3e50;">Virginia Space Coast Scholar</h3>
+      <p>A Virginia Space Grant Consortium/NASA Wallops Flight Facility program which focuses on scientific technology in orbital and suborbital missions.</p>
     </div>
   </div>
 </section>
@@ -321,8 +353,13 @@
   <h2>Projects</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
     <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-      <h3 style="color: #2c3e50; font-size: 1.2rem;">SF6 Insulation Alternatives</h3>
-      <p>Researched and simulated eco-friendly gas compositions using machine learning in Python to replace SF6, a potent gas with a GWP 23,500 times more than CO2, for insulation in electrical applications.</p>
+        <h3 style="color: #2c3e50; font-size: 1.2rem;">Ozone Forecasting, Center of Spatial Information Science and Systems, George Mason University</h3>
+        <p>Under the guidance of Dr. Ziheng Sun, developing the most optimal AI model to enhance CMAQ for subseasonal ozone forecasting.</p>
+        <p><a href="https://github.com/saatvik-prj/sf6-alts-rsrch" target="_blank">View on GitHub</a></p>
+      </div>
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color: #2c3e50; font-size: 1.2rem;">SF<sub style="font-size: 0.8em;">6</sub> Insulation Alternatives</h3>
+      <p>Researched and simulated eco-friendly gas compositions using machine learning in Python to replace SF<sub style="font-size: 0.8em;">6</sub>, a potent gas with a GWP 23,500 times more than CO<sub style="font-size: 0.8em;">2</sub>, for insulation in electrical applications.</p>
       <p><a href="https://github.com/saatvik-prj/sf6-alts-rsrch" target="_blank">View on GitHub</a></p>
     </div>
     <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
@@ -465,7 +502,7 @@
       <li>USA Badminton – National level player; Highest Ranking: 16</li>
       <li>National Speech & Debate Association – Public Forum; Peak Ranking: 207</li>
       <li>Key Club
-      <ul><li>Vice President (Members) - 2023-2024</li><li>Chair (Drives) - 2023-2024</li></ul>
+      <ul><li>Vice President (Members) - 2023-2024</li><li>Chair (Drives) - 2023-2024</li><li>Represented BRHS at Divisional Council Meetings</li></ul>
       </li>
       <li>Others:
       <ul>
@@ -476,56 +513,108 @@
     </ul>
   </section>
 
-<section id="media-features" style="max-width: 800px; margin: 50px auto; padding: 20px;">
-  <h2 style="text-align: center; margin-bottom: 20px;">Media Features</h2>
-  <div class="slider-container" style="position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    <div class="slides" style="display: flex; transition: transform 0.5s ease;">
-      <!-- Slide 1 -->
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #f9f9f9; padding: 30px; text-align: center;">
+<section id="media-features" style="max-width: 900px; margin: 60px auto; padding: 20px; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; margin-bottom: 30px; font-size: 2rem; color: #333;">🌟 Media Features</h2>
+
+  <div class="slider-container" style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.12);">
+    <div class="slides" id="slides" style="display: flex; transition: transform 0.6s ease-in-out;">
+
+      <!-- Slide -->
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #fcfcfc; padding: 30px; text-align: center;">
         <h3>🎙️ Featured in LCPS Podcast</h3>
         <p>Discussing school spirit and volunteerism in an inspiring conversation with Loudoun County Public Schools.</p>
-        <a href="https://podcasts.apple.com/us/podcast/school-spirit-volunteerism/id1779581764?i=1000680121524" target="_blank" style="display: inline-block; margin-top: 10px; color: #fff; background: #1abc9c; padding: 10px 20px; border-radius: 6px; text-decoration: none;">Listen Now</a>
+        <a href="https://podcasts.apple.com/us/podcast/school-spirit-volunteerism/id1779581764?i=1000680121524" target="_blank" class="btn-link">🎧 Listen Now</a>
       </div>
 
-      <!-- Slide 1 -->
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #f9f9f9; padding: 30px; text-align: center;">
-        <h3>🎙️ Featured in Congressional Record. (2025, June 16)</h3>
-        <p>CONGRATULATING THE 2025 CONGRESSIONAL AWARD GOLD MEDALISTS</p>
-        <a href="https://www.congress.gov/congressional-record/volume-171/issue-100/extensions-of-remarks-section/article/E558-6" target="_blank" style="display: inline-block; margin-top: 10px; color: #fff; background: #1abc9c; padding: 10px 20px; border-radius: 6px; text-decoration: none;">View Citation</a>
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #fcfcfc; padding: 30px; text-align: center;">
+        <h3>🏛️ Congressional Record (June 2025)</h3>
+        <p>Recognized among the 2025 Congressional Award Gold Medalists.</p>
+        <a href="https://www.congress.gov/congressional-record/volume-171/issue-100/extensions-of-remarks-section/article/E558-6" target="_blank" class="btn-link">📄 View Citation</a>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #f0f0f0; padding: 30px; text-align: center;">
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #fcfcfc; padding: 30px; text-align: center;">
         <h3>📸 Featured in Nest4US Media</h3>
         <p>Recognized by Nest4US for outstanding service and leadership!</p>
-        <a href="https://www.instagram.com/joinnest/p/DBq6xNzR4BN/?img_index=1" target="_blank" style="display: inline-block; margin-top: 10px; color: #fff; background: #1abc9c; padding: 10px 20px; border-radius: 6px; text-decoration: none;">View Post</a>
+        <a href="https://www.instagram.com/joinnest/p/DBq6xNzR4BN/?img_index=1" target="_blank" class="btn-link">📷 View Post</a>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #f0f0f0; padding: 30px; text-align: center;">
-        <h3>📸 Featured in NVBC</h3>
-        <p>USAB Open Local Championship!</p>
-        <a href="https://www.facebook.com/photo?fbid=810782617817869&set=pcb.810783764484421" target="_blank" style="display: inline-block; margin-top: 10px; color: #fff; background: #1abc9c; padding: 10px 20px; border-radius: 6px; text-decoration: none;">View Post</a>
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #fcfcfc; padding: 30px; text-align: center;">
+        <h3>🌱 LCPS RSEF Environmental Engineering</h3>
+        <p>Highlighted for innovation and impact at the LCPS Regional Science & Engineering Fair.</p>
+        <a href="https://sites.google.com/lcps.org/2025-lcps-rsef/environmental-engineering?authuser=0" target="_blank" class="btn-link">🔬 View Feature</a>
       </div>
 
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; background: #fcfcfc; padding: 30px; text-align: center;">
+        <h3>🏸 NVBC Feature</h3>
+        <p>USAB Open Local Championship highlight post on Facebook.</p>
+        <a href="https://www.facebook.com/photo?fbid=810782617817869&set=pcb.810783764484421" target="_blank" class="btn-link">📷 View Post</a>
+      </div>
     </div>
 
     <!-- Navigation Buttons -->
-    <button class="prev" onclick="moveSlide(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: #1abc9c; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer;">‹</button>
-    <button class="next" onclick="moveSlide(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: #1abc9c; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer;">›</button>
+    <button class="nav-button" onclick="moveSlide(-1)" aria-label="Previous Slide" style="left: 10px;">‹</button>
+    <button class="nav-button" onclick="moveSlide(1)" aria-label="Next Slide" style="right: 10px;">›</button>
   </div>
-</section>
 
-<script>
-  let currentIndex = 0;
-  const slides = document.querySelector(".slides");
+  <style>
+    .btn-link {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #1abc9c;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn-link:hover {
+      background-color: #159d85;
+    }
 
-  function moveSlide(step) {
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      .btn-link {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById("slides");
     const totalSlides = slides.children.length;
-    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-</script>
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = "translateX(" + (-100 * currentIndex) + "%)";
+    }
+
+    // Optional: Auto slide every 6 seconds
+    setInterval(() => moveSlide(1), 6000);
+  </script>
+ </section>
 
   <footer>
     <p>Contact: saatvik.myschool@gmail.com | 703.728.7334 | Ashburn, VA</p>
